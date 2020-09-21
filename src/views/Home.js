@@ -1,17 +1,28 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 function Home() {
   const history = useHistory();
 
-  const [workout, setWorkout] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
+  const [workouts, setWorkouts] = useState([]);
 
   function handleChange(event) {
-    setWorkout(event.target.value);
+    setSearch(event.target.value);
   }
 
   function handleSubmit(event) {
+    setLoading(true);
     event.preventDefault();
+    axios.get(`http://localhost:8888/workouts/${search}`)
+      .then(response => {
+        setWorkouts(response.data);
+        setLoading(false);
+        history.push("/results")
+      })
+      .catch(error => console.log(error))
   }
 
   return (
@@ -23,8 +34,8 @@ function Home() {
         <input 
           className="home-input"
           type="text"
-          name="workout"
-          value={workout}
+          name="search"
+          value={search}
           placeholder="Enter a workout you'd like to find records of!"
           onChange={handleChange}
         />
@@ -32,7 +43,7 @@ function Home() {
           className="home-form-btn"
           onClick={handleSubmit}
         >
-          Find it!
+          Find it
           <span className="home-form-btn-icon">&#10140;</span>
         </button>
         <div className="home-form-split">
