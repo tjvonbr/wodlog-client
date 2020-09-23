@@ -20,7 +20,10 @@ function Home() {
       .then(response => {
         setWorkouts(response.data);
         setLoading(false);
-        history.push("/results")
+        history.push({
+          pathname: "/results",
+          state: {data: response.data}
+        })
       })
       .catch(error => console.log(error))
   }
