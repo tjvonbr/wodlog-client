@@ -14,7 +14,7 @@ function App() {
         <Route path="/results" component={Results} />
       </div>
     </Router>
-  );
+  ); 
 }
 
 export default App;
