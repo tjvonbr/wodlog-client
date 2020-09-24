@@ -10,7 +10,7 @@ function Results(props) {
       <p className="results-header">Below are the workouts that include the exercise you wanted to search for:</p>
       <WorkoutList>
         {data.map(workout => (
-          <WorkoutCard>{workout.description}</WorkoutCard>
+          <WorkoutCard data={workout} key={workout.id} />
         ))}
       </WorkoutList>
     </div>
