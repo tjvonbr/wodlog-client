@@ -1,17 +1,20 @@
 import React from "react";
 
-function WorkoutCard({ data }) {
+function WorkoutCard({ data, handleOpen }) {
   return (
-    <a className="workout-card-wrapper-btn" href="/workouts">
+    <a 
+      className="workout-card-wrapper-btn"
+      onClick={() => handleOpen(data)}
+    >
       <div className="workout-card-wrapper">
         <div className="workout-card-createdat">
-          {data.created_at}
+          {data.postDate}
         </div>
         <div className="workout-card-type">
           {data.type}
         </div>
         <div className="workout-card-description">
-          {data.description.split(",").join("\n")}
+          {data.description}
         </div>
       </div>
     </a>
