@@ -1,7 +1,6 @@
 import React from "react";
 
-function WorkoutList(props) {
-  console.log(props);
+function WorkoutList({ children }) {
   return (
     <div className="results-list-wrapper">
       <div className="results-list-headers">
@@ -10,7 +9,7 @@ function WorkoutList(props) {
         <div className="results-table-description">Description</div>
       </div>
       <div>
-        {props.children}
+        {children}
       </div>
     </div>
   )

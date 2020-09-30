@@ -43,7 +43,7 @@ function Home() {
           onChange={handleChange}
         />
         <button 
-          className="home-form-btn"
+          className="btn sm purple"
           onClick={handleSubmit}
         >
           Find it
@@ -55,7 +55,7 @@ function Home() {
           <span>&#8213;</span>
         </div>
         <button 
-          className="home-form-btn"
+          className="btn sm purple"
           onClick={() => history.push("/addworkout")}
         >
           Add a Workout
@@ -64,6 +64,6 @@ function Home() {
       </form>
     </div>
   )
-}
+};
 
 export { Home };

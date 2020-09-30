@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 function AddWorkout() {
+  const history = useHistory();
+
   // let localDate = new Date().toLocaleDateString();
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -18,11 +21,11 @@ function AddWorkout() {
 
   function handleSubmit(event) {
     try {
+      event.preventDefault();
       const response = axios.post(
-        "http://localhost:8888/workouts",
-        workout
+        "http://localhost:8888/workouts", workout
       )
-      console.log("RESPONSE", response);
+      history.push("/");
     }
     catch (error) {
       console.log(error)
@@ -45,7 +48,7 @@ function AddWorkout() {
           >
             <option value="AMRAP">AMRAP</option>
             <option value="AHAP">AHAP</option>
-            <option value="forTime">For time</option>
+            <option value="For Time">For time</option>
           </select>
         </label>
         <label className="addworkout-description-label">
@@ -77,6 +80,6 @@ function AddWorkout() {
       </form>
     </div>
   )
-}
+};
 
 export { AddWorkout };

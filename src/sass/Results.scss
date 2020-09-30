@@ -7,6 +7,15 @@
   align-items: center;
 }
 
+.results-wrapper--modal-open {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(185,205,216,1) 0%, rgba(130,95,171,1) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .results-header {
   margin-top: 0;
   padding-top: 10px;

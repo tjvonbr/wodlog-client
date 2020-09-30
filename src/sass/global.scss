@@ -1,0 +1,39 @@
+/* Global color themes */
+$white: #ffffff;
+$darkpurple: #483d8b;
+$darkblue: #1c2a4e;
+
+/* Button themes */
+.btn {
+  height: 40px;
+  margin-bottom: 20px;
+  color: $white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  transition: all .3s;
+
+  &:hover {
+    cursor: pointer;
+    opacity: .6;
+    transform: translateY(1px);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// Sizes
+.sm {
+  width: 300px;
+}
+
+// Color schemes
+.purple {
+  background: $darkpurple;
+}
+
+.blue {
+  background: $darkblue;
+}
