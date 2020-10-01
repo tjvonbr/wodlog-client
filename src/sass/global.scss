@@ -2,6 +2,14 @@
 $white: #ffffff;
 $darkpurple: #483d8b;
 $darkblue: #1c2a4e;
+$purplegradient: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(185,205,216,1) 0%, rgba(130,95,171,1) 100%);
+
+/* Header defaults */
+.modal-h1 {
+  margin: 0;
+  padding: 5px 10px;
+  font-size: 21px;
+}
 
 /* Button themes */
 .btn {

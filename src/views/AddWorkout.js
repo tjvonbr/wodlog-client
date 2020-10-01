@@ -5,10 +5,6 @@ import { useHistory } from "react-router-dom";
 function AddWorkout() {
   const history = useHistory();
 
-  // let localDate = new Date().toLocaleDateString();
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const [loading, setLoading] = useState(false);
   const [workout, setWorkout] = useState({
     type: "AMRAP",
     description: "",

@@ -5,21 +5,17 @@ import { useHistory } from "react-router-dom";
 function Home() {
   const history = useHistory();
 
-  const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
-  const [workouts, setWorkouts] = useState([]);
 
   function handleChange(event) {
     setSearch(event.target.value);
   }
 
   function handleSubmit(event) {
-    setLoading(true);
     event.preventDefault();
     axios.get(`http://localhost:8888/workouts/${search}`)
       .then(response => {
-        setWorkouts(response.data);
-        setLoading(false);
+        window.localStorage.setItem("workouts", JSON.stringify(response.data));
         history.push({
           pathname: "/results",
           state: {data: response.data}
