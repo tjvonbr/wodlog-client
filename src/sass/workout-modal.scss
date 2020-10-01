@@ -23,3 +23,22 @@
   background: white;
   border-radius: 4px;
 }
+
+/* Modal Components*/
+/* Modal Description */
+.modal-description-wrapper {
+  width: 100%;
+  border: 1px solid black;
+}
+
+.modal-description-header {
+  margin: 0;
+  padding: 0;
+  border: 1px solid blue;
+}
+
+.modal-p {
+  height: 200px;
+  border: 1px solid red;
+  margin: 0
+}

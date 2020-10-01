@@ -14,6 +14,10 @@
 
 .workout-card-wrapper-btn {
   text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .workout-card-createdat {
