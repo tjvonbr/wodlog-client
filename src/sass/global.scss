@@ -14,7 +14,6 @@ $purplegradient: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(185,205,216,
 /* Button themes */
 .btn {
   height: 40px;
-  margin-bottom: 20px;
   color: $white;
   border: none;
   border-radius: 5px;
@@ -32,16 +31,29 @@ $purplegradient: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(185,205,216,
   }
 }
 
-// Sizes
+// Button sizes
 .sm {
   width: 300px;
 }
 
-// Color schemes
+// Button color schemes
 .purple {
   background: $darkpurple;
 }
 
 .blue {
-  background: $darkblue;
+  background: #0073e6;
+}
+
+.white {
+  background: $white;
+  color: black
+}
+
+// Button placements
+.btm {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  margin-left: calc(-300px / 2)
 }

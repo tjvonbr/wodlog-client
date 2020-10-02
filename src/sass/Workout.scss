@@ -1,7 +1,7 @@
 .workout-outer-wrapper {
   width: 100vw;
   height: 100vh;
-  background: $purplegradient;
+  background: #0059b3;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,17 +9,18 @@
 }
 
 .workout-inner-wrapper {
-  height: 90%;
-  width: 95%;
+  border-radius: 25px;
+  position: relative;
+  height: 450px;
+  width: 450px;
   background: $white;
-  border-radius: 4px;
   display: flex;
   flex-direction: column;
 }
 
 .workout-headers {
   padding: 0;
-  margin: 0;
+  margin: 0 20px;
 }
 
 .workout-date {
@@ -31,9 +32,8 @@
 }
 
 .workout-description {
-  margin: 0;
+  margin: 0 20px;
   padding: 0;
-  border: 1px solid red;
 }
 
 .workout-exercises {
