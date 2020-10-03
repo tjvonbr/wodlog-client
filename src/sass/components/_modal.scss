@@ -1,0 +1,11 @@
+.modal-wrapper--show {
+  width: 500px;
+  height: 300px;
+  border: 1px solid white;
+  transition: all 1s;
+}
+
+.modal-wrapper--hide {
+  display: none;
+  transition: all 1s;
+}

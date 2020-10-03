@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { WodlogLogo } from "../components/logo";
 
 function Home() {
   const history = useHistory();
@@ -26,6 +27,7 @@ function Home() {
 
   return (
     <div className="home-wrapper">
+      <WodlogLogo />
       <form 
         className="home-form-input-wrapper" 
         action="submit"
@@ -39,19 +41,19 @@ function Home() {
           onChange={handleChange}
         />
         <button 
-          className="btn sm purple"
+          className="btn sm green"
           onClick={handleSubmit}
         >
           Find it
           <span className="home-form-btn-icon">&#10140;</span>
         </button>
         <div className="home-form-split">
-          <span>&#8213;</span>
+          <span className="home-or-span">&#8213;</span>
           <span>or</span>
           <span>&#8213;</span>
         </div>
         <button 
-          className="btn sm purple"
+          className="btn sm green"
           onClick={() => history.push("/addworkout")}
         >
           Add a Workout
