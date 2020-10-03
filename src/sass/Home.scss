@@ -1,7 +1,7 @@
 .home-wrapper {
 	height: 100vh;
 	width: 100vw;
-	background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(185,205,216,1) 0%, rgba(130,95,171,1) 100%);
+	background: $darkblue;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -9,14 +9,17 @@
 }
 
 .home-form-input-wrapper {
-	width: 80%;
+	width: 31.25rem;
+	padding: 1rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	border: 2px solid white;
+	border-radius: 5px;
 }
 
 .home-input {
-	width: 100%;
+	width: 75%;
 	height: 40px;
 	margin-bottom: 20px;
 	padding: 7px;
@@ -29,33 +32,12 @@
 	}
 }
 
-.home-form-btn {
-	height: 40px;
-	width: 75%;
-	margin-bottom: 20px;
-	background: darkslateblue;
-	border: none;
-	color: white;
-	font-weight: 700;
-	border-radius: 5px;
-	transition: all .3s;
-
-	&:hover {
-		cursor: pointer;
-		opacity: .6;
-		transform: translateY(1px);
-	}
-	&:focus {
-		outline: none;
-	}
-}
-
 .home-form-btn-icon {
 	margin-left: 10px;
 }
 
 .home-form-split {
-	margin-bottom: 20px;
+	margin: 20px 0;
 }
 
 .home-form-split > span {

@@ -1,23 +1,31 @@
 /* Global color themes */
 $white: #ffffff;
-$darkpurple: #483d8b;
-$darkblue: #1c2a4e;
-$purplegradient: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(185,205,216,1) 0%, rgba(130,95,171,1) 100%);
+$darkblue: #01426d;
+$spanishblue: #016FB9;
+$pacificblue: #22aed1;
+$green: #009a50;
 
-/* Header defaults */
-.modal-h1 {
+/* Header styles */
+h1 {
+  font-family: 'Cabin', sans-serif;
+}
+
+.wodlog-logo {
   margin: 0;
-  padding: 5px 10px;
-  font-size: 21px;
+  padding: 0;
+  font-family: "Satisfy", cursive;
+  size: 1rem;
+  color: $white;
 }
 
 /* Button themes */
 .btn {
-  height: 40px;
-  color: $white;
+  height: 2.5rem;
   border: none;
-  border-radius: 5px;
-  font-weight: 700;
+  border-radius: 0.313rem;
+  font-family: "Cabin", sans-serif;
+  color: $white;
+  font-weight: 500;
   transition: all .3s;
 
   &:hover {
@@ -33,16 +41,16 @@ $purplegradient: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(185,205,216,
 
 // Button sizes
 .sm {
-  width: 300px;
+  width: 18.75rem;
 }
 
 // Button color schemes
-.purple {
-  background: $darkpurple;
-}
-
 .blue {
   background: #0073e6;
+}
+
+.green {
+  background: $green;
 }
 
 .white {

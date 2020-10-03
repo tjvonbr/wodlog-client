@@ -1,8 +1,5 @@
 .results-list-wrapper {
-  width: 90%;
-  background: white;
-  border: none;
-  border-radius: 3px;
+  width: 1000px;
 }
 
 .results-list-headers {
@@ -10,13 +7,14 @@
   display: flex;
   flex-direction: row;
   background: #F6F9FC;
-  padding: 5px 10px;
+  padding: 0.313rem 0.625rem;
   box-sizing: border-box;
-  border-radius: 3px;
+  border-radius: 5px 5px 0 0;
 }
 
 .results-list-headers > div {
-  font-size: 12px;
+  font-family: "Cabin", sans-serif;
+  font-size: 1rem;
   font-weight: 600;
   text-align: center;
 }

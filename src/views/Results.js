@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { HelpModalLink } from "../components/help-modal-link";
+import { HelpModal } from "../components/help-modal";
+import { WodlogLogo } from "../components/logo";
 import { WorkoutList } from "../components/workout-list";
 import { WorkoutCard } from "../components/workout-card";
 
@@ -7,11 +10,16 @@ function Results() {
   const searchResults = window.localStorage.getItem("workouts");
   const parsedResults = JSON.parse(searchResults);
 
+  const displayModal = () => setModalVisible(true);
+  const hideModal = () => setModalVisible(false);
+
+  /* Component state */
   const [results, setResults] = useState(parsedResults);
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <div className="results-wrapper">
-      <p className="results-header">Below are the workouts that include the exercise you wanted to search for:</p>
+      <WodlogLogo />
       <WorkoutList>
         {results.map(workout => (
           <WorkoutCard
@@ -20,6 +28,8 @@ function Results() {
           />
         ))}
       </WorkoutList>
+      <HelpModalLink open={displayModal} modal={modalVisible} />
+      <HelpModal modal={modalVisible} hide={hideModal} />
     </div>
   )
 }

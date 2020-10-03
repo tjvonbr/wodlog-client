@@ -1,0 +1,14 @@
+.modal-link-wrapper {
+  margin: 0;
+  padding: 0.5rem;
+  font-family: "Cabin", sans-serif;
+  font-size: 0.9rem;
+  color: $white;
+  text-decoration: none;
+  transition: all 1s;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
