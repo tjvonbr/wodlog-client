@@ -1,17 +1,25 @@
 .modal-wrapper--show {
+  position: relative;
   width: 500px;
-  transition: all 1s;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  opacity: 1.0;
+  transition: opacity 0.5s;
 }
 
 .modal-wrapper--hide {
-  display: none;
-  transition: all 1s;
+  position: relative;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.0;
+  transition: opacity 0.5s
 }
 
-// Modal help hints
 .help-item {
   width: 100%;
   display: flex;
