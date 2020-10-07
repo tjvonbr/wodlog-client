@@ -19,17 +19,21 @@ function Results() {
 
   return (
     <div className="results-wrapper">
-      <WodlogLogo />
-      <WorkoutList>
-        {results.map(workout => (
-          <WorkoutCard
-            data={workout}
-            key={workout.id}
-          />
-        ))}
-      </WorkoutList>
-      <HelpModalLink open={displayModal} modal={modalVisible} />
-      <HelpModal modal={modalVisible} hide={hideModal} />
+      <main className="content-wrapper">
+        <WodlogLogo />
+        <WorkoutList>
+          {results.map(workout => (
+            <WorkoutCard
+              data={workout}
+              key={workout.id}
+            />
+          ))}
+        </WorkoutList>
+        <HelpModalLink open={displayModal} modal={modalVisible} />
+        <div className="help-modal-wrapper">
+          <HelpModal modal={modalVisible} hide={hideModal} />
+        </div>
+      </main>
     </div>
   )
 }
