@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { AppShell } from "../components/app-shell";
+import { Spinner } from "../components/spinner";
 import { client } from "../utils/client";
 
 function SignIn(props) {
@@ -7,6 +8,7 @@ function SignIn(props) {
     username: "",
     password: "",  
   })
+  const [loading, setLoading] = useState(false);
 
   function handleChange(event) {
     setCredentials({...credentials, [event.target.name]: event.target.value})
@@ -14,8 +16,10 @@ function SignIn(props) {
   
   function handleLogin(event) {
     event.preventDefault();
+    setLoading(true);
     return client("login", { data: credentials })
       .then(response => {
+        setLoading(false);
         props.history.replace("/dashboard");
       })
       .catch(error => {
@@ -63,7 +67,7 @@ function SignIn(props) {
             className="btn sm blue"
             onClick={handleLogin}  
           >
-            Sign in
+            { loading ? <Spinner /> : "Sign in" }
           </button>
           <a 
             className="form-redirect-text"
