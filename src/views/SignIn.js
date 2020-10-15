@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { AppShell } from "../components/app-shell";
+import { client } from "../utils/client";
 
-function SignIn() {
+function SignIn(props) {
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: "",  
+  })
+
+  function handleChange(event) {
+    setCredentials({...credentials, [event.target.name]: event.target.value})
+  }
+  
+  function handleLogin(event) {
+    event.preventDefault();
+    return client("login", { data: credentials })
+      .then(response => {
+        props.history.replace("/dashboard");
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
   return (
     <AppShell>
       <form 
-        className="form-wrapper"
+        className="form-wrapper signin"
         action="submit"
       >
         <div className="form-header-wrapper">
@@ -23,6 +44,8 @@ function SignIn() {
             className="form-input"
             type="text"
             name="username"
+            value={credentials.username}
+            onChange={handleChange}
           />
           <label htmlFor="password" className="form-input-label">
             Password
@@ -30,11 +53,16 @@ function SignIn() {
           <input 
             className="form-input"
             type="password"
-            name="search"
+            name="password"
+            value={credentials.password}
+            onChange={handleChange}
           />
         </div>
         <div className="form-redirect-wrapper">
-          <button className="btn sm blue">
+          <button 
+            className="btn sm blue"
+            onClick={handleLogin}  
+          >
             Sign in
           </button>
           <a 
