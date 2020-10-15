@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Spinner } from "../components/spinner";
 import { client } from "../utils/client";
 import { AppShell } from "../components/app-shell";
 
@@ -8,6 +9,7 @@ function Register(props) {
     email: "",
     password: ""
   })
+  const [loading, setLoading] = useState(false);
 
   function handleChange(event) {
     setCredentials({...credentials, [event.target.name]: event.target.value})
@@ -15,9 +17,11 @@ function Register(props) {
 
   function handleRegister(event) {
     event.preventDefault();
+    setLoading(true);
     return client("register", { data: credentials })
     .then(response => {
       console.log(response);
+      setLoading(false);
       props.history.replace("/dashboard");
     })
     .catch(error => {
@@ -72,7 +76,7 @@ function Register(props) {
             className="btn sm blue"
             onClick={handleRegister}  
           >
-            Register
+            { loading ? <Spinner /> : "Register" }
           </button>
           <a 
             className="form-redirect-text"
