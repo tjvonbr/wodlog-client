@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Spinner } from "../components/spinner";
 import { useHistory } from "react-router-dom";
+import { AppShell } from "../components/app-shell";
 import { WodlogLogo } from "../components/logo";
 
 function Home() {
   const history = useHistory();
 
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(false);
 
   function handleChange(event) {
     setSearch(event.target.value);
@@ -14,53 +17,55 @@ function Home() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    setLoading(true);
     axios.get(`http://localhost:8888/workouts/${search}`)
       .then(response => {
+        setLoading(true);
         window.localStorage.setItem("workouts", JSON.stringify(response.data));
         history.push({
           pathname: "/results",
           state: {data: response.data}
         })
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        setLoading(false);
+        console.log(error);
+      })
   }
 
   return (
-    <div className="home-wrapper">
+    <AppShell>
       <WodlogLogo />
       <form 
-        className="home-form-input-wrapper" 
+        className="form-wrapper dashboard" 
         action="submit"
       >
-        <input 
-          className="home-input"
-          type="text"
-          name="search"
-          value={search}
-          placeholder="Enter a workout you'd like to find records of!"
-          onChange={handleChange}
-        />
-        <button 
-          className="btn sm green"
-          onClick={handleSubmit}
-        >
-          Find it
-          <span className="home-form-btn-icon">&#10140;</span>
-        </button>
-        <div className="home-form-split">
-          <span className="home-or-span">&#8213;</span>
-          <span>or</span>
-          <span>&#8213;</span>
+        <div className="form-input-wrapper">
+          <input 
+            className="dashboard-input"
+            type="text"
+            name="search"
+            value={search}
+            placeholder="Enter a workout you'd like to find records of!"
+            onChange={handleChange}
+          />
         </div>
-        <button 
-          className="btn sm green"
-          onClick={() => history.push("/addworkout")}
-        >
-          Add a Workout
-          <span className="home-form-btn-icon">&#43;</span>
-        </button>
+        <div className="btn-wrapper">
+          <button 
+            className="tiny green btn"
+            onClick={handleSubmit}
+          >
+            { loading ? <Spinner /> : "Find it" }
+          </button>
+          <button 
+            className="tiny green btn"
+            onClick={() => history.push("/addworkout")}
+          >
+            Add a Workout
+          </button>
+        </div>
       </form>
-    </div>
+    </AppShell>
   )
 };
 

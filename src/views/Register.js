@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Spinner } from "../components/spinner";
-import { client } from "../utils/client";
 import { AppShell } from "../components/app-shell";
+import { Spinner } from "../components/spinner";
+import { WodlogLogo } from "../components/logo";
+import { client } from "../utils/client";
 
 function Register(props) {
   const [credentials, setCredentials] = useState({
@@ -31,6 +32,7 @@ function Register(props) {
 
   return (
     <AppShell>
+      <WodlogLogo />
       <form 
         className="form-wrapper register"
         action="submit"
@@ -44,7 +46,7 @@ function Register(props) {
               Username
             </label>
             <input 
-              className="form-input"
+              className="registration-input"
               type="text"
               name="username"
               value={credentials.username}
@@ -54,7 +56,7 @@ function Register(props) {
               Email
             </label>
             <input 
-              className="form-input"
+              className="registration-input"
               type="email"
               name="email"
               value={credentials.email}
@@ -64,7 +66,7 @@ function Register(props) {
               Password
             </label>
             <input 
-              className="form-input"
+              className="registration-input"
               type="password"
               name="password"
               value={credentials.password}
@@ -73,7 +75,7 @@ function Register(props) {
         </div>
         <div className="form-redirect-wrapper">
           <button 
-            className="btn sm blue"
+            className="small blue btn"
             onClick={handleRegister}  
           >
             { loading ? <Spinner /> : "Register" }

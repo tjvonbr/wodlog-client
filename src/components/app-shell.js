@@ -2,7 +2,7 @@ import React from "react";
 
 function AppShell({ children }) {
   return(
-    <div className="shell">
+    <div className="shell center">
       {children}
     </div>
   )

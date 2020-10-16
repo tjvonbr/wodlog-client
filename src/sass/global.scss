@@ -12,10 +12,11 @@ h1 {
 }
 
 .wodlog-logo {
-  margin: 0;
-  padding: 0;
+  margin: 0.3rem;
+  padding: 0rem;
   font-family: "Satisfy", cursive;
-  size: 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: $white;
 }
 
@@ -41,8 +42,12 @@ h1 {
 }
 
 // Button sizes
-.sm {
+.small {
   width: 18.75rem;
+}
+
+.tiny {
+  width: 13rem;
 }
 
 // Button color schemes
