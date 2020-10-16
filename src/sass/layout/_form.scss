@@ -19,12 +19,12 @@
   width: 75%;
   font-family: "Libre Franklin", sans-serif;
   font-size: 1rem;
+  color: gray;
   text-align: center;
 }
 
 .form-input-wrapper {
   width: 90%;
-  height: 35%;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -50,6 +50,20 @@
     outline-width: 1px;
     outline-color: $pacificblue;
   }
+}
+
+.form-textarea {
+  @include form-input;
+  min-height: 6.25rem;
+  margin-bottom: 2rem;
+}
+
+.form-btn-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-redirect-wrapper {
@@ -90,6 +104,11 @@
   height: 10rem;
 }
 
+.addworkout {
+  width: 31.25rem;
+  height: 40rem;
+}
+
 // Various config for view inputs
 .dashboard-input {
   @include form-input;
@@ -99,4 +118,9 @@
 .registration-input {
   @include form-input;
   margin-bottom: 2rem;
+}
+
+.addWorkout-input {
+  @include form-input;
+  min-height: 80px;
 }

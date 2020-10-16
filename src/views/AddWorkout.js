@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { AppShell } from "../components/app-shell";
 import axios from 'axios';
+import { AppShell } from "../components/app-shell";
+import { Spinner } from "../components/spinner";
+import { WodlogLogo } from "../components/logo";
 import { useHistory } from "react-router-dom";
 
 function AddWorkout() {
@@ -11,69 +13,79 @@ function AddWorkout() {
     description: "",
     notes: ""
   })
+  const [pending, setPending] = useState(false);
 
   function handleChange(event) {
     setWorkout({ ...workout, [event.target.name]: event.target.value })
   }
 
   function handleSubmit(event) {
-    try {
       event.preventDefault();
-      const response = axios.post(
-        "http://localhost:8888/workouts", workout
-      )
-      history.push("/");
-    }
-    catch (error) {
+      setPending(true)
+      axios.post("http://localhost:8888/workouts", workout)
+      .then(response => {
+        setPending(false);
+        history.push("/");
+      })
+    .catch(error => {
       console.log(error)
-    }
+    })
   }
 
   return (
     <AppShell>
+      <WodlogLogo />
       <form
-        className="form-wrapper"
+        className="form-wrapper addworkout"
         action="submit"
       >
-      <label className="addworkout-description-label">
-          Type of Workout
-          <select 
-            className="addworkout-description-input"
-            name="type"
-            value={workout.type}
-            onChange={handleChange}
-          >
-            <option value="AMRAP">AMRAP</option>
-            <option value="AHAP">AHAP</option>
-            <option value="For Time">For time</option>
-          </select>
-        </label>
-        <label className="addworkout-description-label">
-          Workout
+        <div className="form-header-wrapper">
+          <h1 className="form-header">Add a workout</h1>
+          <p className="form-description">Add a workout to keep track of your progress.</p>
+        </div>
+        <div className="form-input-wrapper">
+          <label htmlFor="type" className="form-input-label">
+            Type of Workout
+          </label>
+            <select 
+              className="registration-input"
+              name="type"
+              value={workout.type}
+              onChange={handleChange}
+            >
+              <option value="AMRAP">AMRAP</option>
+              <option value="AHAP">AHAP</option>
+              <option value="For Time">For time</option>
+            </select>
+          <label htmlFor="description" className="form-input-label">
+            Workout
+          </label>
           <textarea 
-            className="addworkout-description-input"
+            className="form-textarea"
             placeholder="What was your workout?"
             name="description"
             value={workout.description}
             onChange={handleChange}
           />
-        </label>
-        <label className="addworkout-description-label">
-          Notes
+          <label htmlFor="notes" className="form-input-label">
+            Notes
+          </label>
           <textarea 
-            className="addworkout-description-input"
+            className="form-textarea"
             placeholder="How did your workout go?"
             name="notes"
             value={workout.notes}
             onChange={handleChange}
           />
-        </label>
-        <button
-          className="home-form-btn"
-          onClick={handleSubmit}
-        >
-          Submit workout!
-        </button>
+        </div>
+        <div className="form-btn-wrapper">
+          <button
+            className="small blue btn"
+            onClick={handleSubmit}
+          >
+            { pending ? <Spinner /> : "Submit workout!" }
+          </button>
+        </div>
       </form>
      </AppShell>
   )
