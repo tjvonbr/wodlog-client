@@ -44,7 +44,7 @@ function SignIn(props) {
         </div>
         <div className="form-input-wrapper">
           <label htmlFor="username" className="form-input-label">
-            Email or username
+            Username
           </label>
           <input 
             className="registration-input"
