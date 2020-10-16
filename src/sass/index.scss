@@ -1,7 +1,7 @@
-@import "AddWorkout";
-@import "global";
-@import "Home";
 @import "base/reset";
+@import "views/add";
+@import "views/home";
+@import "global";
 @import "components/modal";
 @import "components/modal-link";
 @import "layout/form";

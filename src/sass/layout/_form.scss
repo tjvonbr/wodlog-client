@@ -1,14 +1,10 @@
 .form-wrapper {
-  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   background: $white;
   border-radius: 4px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .form-header {
@@ -40,11 +36,10 @@
   font-size: 0.9rem;
 }
 
-.form-input {
+@mixin form-input {
   width: 100%;
   display: block;
   padding: 0.75rem;
-  margin-bottom: 2rem;
   font-family: "Libre Franklin", sans-serif;
   font-size: 1rem;
   box-sizing: border-box;
@@ -79,7 +74,7 @@
   }
 }
 
-// Config sizes for signin and registration
+// Config sizes for views dir
 .signin {
   width: 31.25rem;
   height: 31.25rem;
@@ -87,5 +82,21 @@
 
 .register {
   width: 31.25rem;
-  height: 40em;
+  height: 40rem;
+}
+
+.dashboard {
+  width: 31.25rem;
+  height: 10rem;
+}
+
+// Various config for view inputs
+.dashboard-input {
+  @include form-input;
+  margin-top: 1rem;
+}
+
+.registration-input {
+  @include form-input;
+  margin-bottom: 2rem;
 }

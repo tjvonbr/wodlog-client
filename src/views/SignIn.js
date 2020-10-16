@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AppShell } from "../components/app-shell";
 import { Spinner } from "../components/spinner";
+import { WodlogLogo } from "../components/logo";
 import { client } from "../utils/client";
 
 function SignIn(props) {
@@ -29,6 +30,7 @@ function SignIn(props) {
 
   return (
     <AppShell>
+      <WodlogLogo />
       <form 
         className="form-wrapper signin"
         action="submit"
@@ -45,7 +47,7 @@ function SignIn(props) {
             Email or username
           </label>
           <input 
-            className="form-input"
+            className="registration-input"
             type="text"
             name="username"
             value={credentials.username}
@@ -55,7 +57,7 @@ function SignIn(props) {
             Password
           </label>
           <input 
-            className="form-input"
+            className="registration-input"
             type="password"
             name="password"
             value={credentials.password}
@@ -64,7 +66,7 @@ function SignIn(props) {
         </div>
         <div className="form-redirect-wrapper">
           <button 
-            className="btn sm blue"
+            className="small blue btn"
             onClick={handleLogin}  
           >
             { loading ? <Spinner /> : "Sign in" }

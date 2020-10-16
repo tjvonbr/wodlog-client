@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AppShell } from "../components/app-shell";
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 
@@ -29,9 +30,9 @@ function AddWorkout() {
   }
 
   return (
-    <div className="addworkout-wrapper">
+    <AppShell>
       <form
-        className="addworkout-form-wrapper"
+        className="form-wrapper"
         action="submit"
       >
       <label className="addworkout-description-label">
@@ -74,7 +75,7 @@ function AddWorkout() {
           Submit workout!
         </button>
       </form>
-    </div>
+     </AppShell>
   )
 };
 

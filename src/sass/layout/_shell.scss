@@ -3,3 +3,10 @@
   height: 100vh;
   background: $darkblue;
 }
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
