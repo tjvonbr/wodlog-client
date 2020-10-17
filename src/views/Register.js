@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useFormik } from "formik";
 import { AppShell } from "../components/app-shell";
 import { Spinner } from "../components/spinner";
 import { WodlogLogo } from "../components/logo";
@@ -10,32 +11,33 @@ function Register(props) {
     email: "",
     password: ""
   })
-  const [loading, setLoading] = useState(false);
+  const [pending, setPending] = useState(false);
 
-  function handleChange(event) {
-    setCredentials({...credentials, [event.target.name]: event.target.value})
-  }
-
-  function handleRegister(event) {
-    event.preventDefault();
-    setLoading(true);
-    return client("register", { data: credentials })
-    .then(response => {
-      console.log(response);
-      setLoading(false);
-      props.history.replace("/dashboard");
-    })
-    .catch(error => {
-      console.log(error);
-    })
-  }
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      email: "",
+      password: ""
+    },
+    onSubmit: values => {
+      setPending(true);
+      return client("register", { data: values })
+        .then(response => {
+          setPending(false);
+          props.history.replace("/dashboard");
+        })
+        .catch(error => {
+          console.log(error);
+        })
+    }
+  })
 
   return (
     <AppShell>
       <WodlogLogo />
       <form 
         className="form-wrapper register"
-        action="submit"
+        onSubmit={formik.handleSubmit}
       >
         <div className="form-header-wrapper">
           <h1 className="form-header">Create an account</h1>
@@ -47,38 +49,41 @@ function Register(props) {
             </label>
             <input 
               className="registration-input"
-              type="text"
+              id="username"
               name="username"
-              value={credentials.username}
-              onChange={handleChange}
+              type="text"
+              onChange={formik.handleChange}
+              value={formik.values.username}
             />
             <label htmlFor="username" className="form-input-label">
               Email
             </label>
             <input 
               className="registration-input"
-              type="email"
+              id="email"
               name="email"
-              value={credentials.email}
-              onChange={handleChange}
+              type="email"
+              onChange={formik.handleChange}
+              value={formik.values.email}
             />
             <label htmlFor="password" className="form-input-label">
               Password
             </label>
             <input 
               className="registration-input"
-              type="password"
+              id="password"
               name="password"
-              value={credentials.password}
-              onChange={handleChange}
+              type="password"
+              onChange={formik.handleChange}
+              value={formik.values.password}
             />
         </div>
         <div className="form-redirect-wrapper">
           <button 
             className="small blue btn"
-            onClick={handleRegister}  
+            type="submit" 
           >
-            { loading ? <Spinner /> : "Register" }
+            { pending ? <Spinner /> : "Register" }
           </button>
           <a 
             className="form-redirect-text"
