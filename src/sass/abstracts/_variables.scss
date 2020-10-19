@@ -6,6 +6,12 @@ $pacificblue: #22aed1;
 $green: #009a50;
 $inputgray: #dad9e1;
 
+/* Media queries */
+$break-desktop: 1200px;
+$break-tablet: 992px;
+$break-phone-landscape: 768px;
+$break-phone: 576px;
+
 /* Header styles */
 h1 {
   font-family: 'Cabin', sans-serif;
@@ -44,6 +50,10 @@ h1 {
 // Button sizes
 .small {
   width: 18.75rem;
+
+  @media screen and (max-width: $break-phone) {
+    background: red;
+  }
 }
 
 .tiny {

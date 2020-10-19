@@ -1,4 +1,5 @@
 .form-wrapper {
+  width: 31.25rem;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -6,6 +7,10 @@
   align-items: center;
   background: $white;
   border-radius: 4px;
+
+  @media screen and (max-width: $break-phone) {
+    width: 95%;
+  }
 }
 
 .form-header {
@@ -93,22 +98,18 @@
 
 // Config sizes for views dir
 .signin {
-  width: 31.25rem;
   height: 31.25rem;
 }
 
 .register {
-  width: 31.25rem;
   height: 40rem;
 }
 
 .dashboard {
-  width: 31.25rem;
   min-height: 10rem;
 }
 
 .addworkout {
-  width: 31.25rem;
   height: 40rem;
 }
 

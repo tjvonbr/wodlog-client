@@ -1,5 +1,9 @@
 .results-list-wrapper {
-  width: 1000px;
+  width: 75%;
+
+  @media screen and (max-width: $break-phone-landscape) {
+    width: 90%;
+  }
 }
 
 .results-list-headers {
