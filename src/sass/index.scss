@@ -1,6 +1,7 @@
 @import "base/reset";
 @import "views/add";
 @import "views/home";
+@import "views/workout";
 @import "global";
 @import "components/modal";
 @import "components/modal-link";
@@ -8,7 +9,6 @@
 @import "layout/shell";
 @import "Results";
 @import "components/spinner";
-@import "Workout";
 @import "workout-card";
 @import "workout-list";
 @import "workout-modal";
