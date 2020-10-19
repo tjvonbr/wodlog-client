@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AppShell } from "../components/app-shell"
 import { HelpModalLink } from "../components/help-modal-link";
 import { HelpModal } from "../components/help-modal";
 import { WodlogLogo } from "../components/logo";
@@ -18,7 +19,7 @@ function Results() {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <div className="results-wrapper">
+    <AppShell>
       <main className="content-wrapper">
         <WodlogLogo />
         <WorkoutList>
@@ -34,7 +35,7 @@ function Results() {
           <HelpModal modal={modalVisible} hide={hideModal} />
         </div>
       </main>
-    </div>
+    </AppShell>
   )
 }
 
