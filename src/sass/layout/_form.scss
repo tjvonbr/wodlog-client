@@ -55,6 +55,8 @@
 .form-textarea {
   @include form-input;
   min-height: 6.25rem;
+  max-height: 6.25rem;
+  max-width: 100%;
   margin-bottom: 2rem;
 }
 
@@ -101,7 +103,7 @@
 
 .dashboard {
   width: 31.25rem;
-  height: 10rem;
+  min-height: 10rem;
 }
 
 .addworkout {

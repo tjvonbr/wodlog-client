@@ -55,13 +55,13 @@ function Home() {
             className="tiny green btn"
             onClick={handleSubmit}
           >
-            { loading ? <Spinner /> : "Find it" }
+            { loading ? <Spinner /> : "Find Workout" }
           </button>
           <button 
             className="tiny green btn"
             onClick={() => history.push("/addworkout")}
           >
-            Add a Workout
+            Add workout
           </button>
         </div>
       </form>

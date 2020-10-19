@@ -6,11 +6,6 @@ import { WodlogLogo } from "../components/logo";
 import { client } from "../utils/client";
 
 function Register(props) {
-  const [credentials, setCredentials] = useState({
-    username: "",
-    email: "",
-    password: ""
-  })
   const [pending, setPending] = useState(false);
 
   const formik = useFormik({
