@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useFormik } from "formik";
 import { AppShell } from "../components/app-shell";
 import { Spinner } from "../components/spinner";
 import { WodlogLogo } from "../components/logo";
 import { useHistory } from "react-router-dom";
+import { client } from "../utils/client";
 
 function AddWorkout() {
   const history = useHistory();
@@ -15,29 +16,31 @@ function AddWorkout() {
   })
   const [pending, setPending] = useState(false);
 
-  function handleChange(event) {
-    setWorkout({ ...workout, [event.target.name]: event.target.value })
-  }
-
-  function handleSubmit(event) {
-      event.preventDefault();
-      setPending(true)
-      axios.post("http://localhost:8888/workouts", workout)
-      .then(response => {
-        setPending(false);
-        history.push("/");
-      })
-    .catch(error => {
-      console.log(error)
-    })
-  }
+  const formik = useFormik({
+    initialValues: {
+      type: "AMRAP",
+      description: "",
+      notes: "",
+    },
+    onSubmit: values => {
+      setPending(true);
+      return client("workouts", { data: values })
+        .then(response => {
+          setPending(false);
+          history.push.replace("/dashboard");
+        })
+        .catch(error => {
+          console.log(error);
+        })
+    }
+  })
 
   return (
     <AppShell>
       <WodlogLogo />
       <form
         className="form-wrapper addworkout"
-        action="submit"
+        onSubmit={formik.onSubmit}
       >
         <div className="form-header-wrapper">
           <h1 className="form-header">Add a workout</h1>
@@ -49,9 +52,10 @@ function AddWorkout() {
           </label>
             <select 
               className="registration-input"
+              id="type"
               name="type"
-              value={workout.type}
-              onChange={handleChange}
+              value={formik.values.type}
+              onChange={formik.handleChange}
             >
               <option value="AMRAP">AMRAP</option>
               <option value="AHAP">AHAP</option>
@@ -62,10 +66,11 @@ function AddWorkout() {
           </label>
           <textarea 
             className="form-textarea"
+            id="description"
             placeholder="What was your workout?"
             name="description"
-            value={workout.description}
-            onChange={handleChange}
+            value={formik.values.description}
+            onChange={formik.handleChange}
           />
           <label htmlFor="notes" className="form-input-label">
             Notes
@@ -73,15 +78,16 @@ function AddWorkout() {
           <textarea 
             className="form-textarea"
             placeholder="How did your workout go?"
+            id="notes"
             name="notes"
-            value={workout.notes}
-            onChange={handleChange}
+            value={formik.values.notes}
+            onChange={formik.handleChange}
           />
         </div>
         <div className="form-btn-wrapper">
           <button
             className="small blue btn"
-            onClick={handleSubmit}
+            type="submit"
           >
             { pending ? <Spinner /> : "Submit workout!" }
           </button>
