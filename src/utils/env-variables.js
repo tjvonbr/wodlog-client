@@ -4,8 +4,8 @@ const dev = {
 }
 
 const production = {
-  base: "https://wodlog.dev",
-  workouts: "https://wodlog.dev/workouts"
+  base: "https://wodlog-server.herokuapp.com/",
+  workouts: "https://wodlog-server.herokuapp.com/workouts"
 }
 
 export const config = process.env.NODE_ENV === 
