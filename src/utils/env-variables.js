@@ -4,7 +4,7 @@ const dev = {
 }
 
 const production = {
-  base: "https://wodlog-server.herokuapp.com/",
+  base: "https://wodlog-server.herokuapp.com",
   workouts: "https://wodlog-server.herokuapp.com/workouts"
 }
 
