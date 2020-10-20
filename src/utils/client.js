@@ -1,4 +1,6 @@
-const apiURL = process.env.REACT_APP_API_URL;
+import { config } from "./env-variables";
+
+const apiURL = config.base; 
 
 async function client(
   endpoint,
