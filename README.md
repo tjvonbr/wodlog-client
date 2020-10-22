@@ -1,68 +1,36 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Wodlog
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+When you arrive to the gym and check the WOD requirements for the day, sometimes you can't remember how many reps or weight you used last time you completed the same exercise (handstand pushups, for example).  Unfortunately, CrossFit gyms run a tight schedule, and I don't have time to estimate the last time I did handstand pushups, open the calendar and check which day featured handstand pushups, one by one.  Wodlog provides the most simple solution.  Type in the exercise you're searching for, and Wodlog will fetch a list of workouts where an instance of the exercise exists, sorted in chronological order.
 
-### `npm start`
+* **Tech Stack** - Wodlog's frontend is built with React while the backend is built with Node/Express.
+* **Status** - 1.0
+* https://wodlog.dev
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How to Contribute
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+There are two ways you can contribute to this project:
+  1. You can open an issue, and
+  2. Directly edit the codebase
+  
+### Open Issue
 
-### `npm test`
+Wodlog plans to implement new features in future iterations, but I'm always curious features others would like to see, so if that's you, please open an issue to do so.  Also, if you have questions, this is the place to voice it.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Edit the Codebase
 
-### `npm run build`
+If you have developed a patch, bug fix, or new feature that would improve this app, please submit a pull request. It is best to communicate your ideas with the developers first before investing a great deal of time into a pull request to ensure that it will mesh smoothly with the project.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Remember this project is licensed under the MIT license, and by submitting a pull request, your changes should follow the guideline.
+2. Update the README.md with details of your code.
+3. Submit a pull request with your changes after carefully reviewing and testing your code.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Install Node.js on your machine.
+2. Clone the frontend repository and download it to your machine.
+3. Install dependencies by running the npm install or yarn install command.
+4. Run the app in development mode by running the npm start or yarn start command.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
