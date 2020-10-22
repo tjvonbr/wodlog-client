@@ -13,6 +13,10 @@
   }
 }
 
+.form-header-wrapper {
+  width: 90%;
+}
+
 .form-header {
   padding: 1rem;
   font-family: "Cabin", sans-serif;
@@ -31,8 +35,10 @@
 
 .form-input-wrapper {
   width: 90%;
+  height: 60%;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   box-sizing: border-box;
 }
 
@@ -75,15 +81,16 @@
 }
 
 .form-redirect-wrapper {
-  width: 100%;
-  height: 12%;
+  width: 90%;
+  height: 15%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
 .form-redirect-text {
+  padding: 1rem;
   font-family: "Libre Franklin", sans-serif;
   font-size: 0.8rem;
   text-decoration: none;
