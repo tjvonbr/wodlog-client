@@ -1,0 +1,12 @@
+.form-error-message--show {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  color: red;
+  font-size: 0.8rem;
+  transform: translateY(150%);
+}
+
+.form-error-message--hide {
+  display: hidden;
+}
