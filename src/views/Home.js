@@ -46,7 +46,7 @@ function Home() {
             type="text"
             name="search"
             value={search}
-            placeholder="Enter a workout you'd like to find records of!"
+            placeholder="What would you like to search for?"
             onChange={handleChange}
           />
         </div>
@@ -61,7 +61,7 @@ function Home() {
             className="tiny green btn"
             onClick={() => history.push("/addworkout")}
           >
-            Add workout
+            Add Workout
           </button>
         </div>
       </form>

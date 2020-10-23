@@ -28,7 +28,7 @@ h1 {
 
 /* Button themes */
 .btn {
-  height: 2.5rem;
+  height: 2.75rem;
   border: none;
   border-radius: 0.313rem;
   font-family: "Cabin", sans-serif;
@@ -50,34 +50,16 @@ h1 {
 // Button sizes
 .small {
   width: 18.75rem;
-
-  @media screen and (max-width: $break-phone) {
-    background: red;
-  }
 }
 
 .tiny {
-  width: 13rem;
-}
+  width: 12rem;
 
-// Button color schemes
-.blue {
-  background: #0073e6;
+  @media screen and (max-width: $break-phone) {
+    width: 10rem;
+  }
 }
 
 .green {
   background: $green;
-}
-
-.white {
-  background: $white;
-  color: black
-}
-
-// Button placements
-.btm {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  margin-left: calc(-300px / 2)
 }
