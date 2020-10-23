@@ -27,7 +27,7 @@ h1 {
 }
 
 /* Button themes */
-.btn {
+%btn {
   height: 2.75rem;
   border: none;
   border-radius: 0.313rem;
@@ -47,19 +47,22 @@ h1 {
   }
 }
 
-// Button sizes
+.btn {
+  @extend %btn
+}
+
 .small {
   width: 18.75rem;
 }
 
-.tiny {
-  width: 12rem;
-
-  @media screen and (max-width: $break-phone) {
-    width: 10rem;
-  }
+.fluid {
+  width: 47%;
 }
 
 .green {
   background: $green;
+}
+
+.blue {
+  background: $pacificblue;
 }
