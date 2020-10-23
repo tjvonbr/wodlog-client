@@ -52,13 +52,13 @@ function Home() {
         </div>
         <div className="btn-wrapper">
           <button 
-            className="tiny green btn"
+            className="fluid green btn"
             onClick={handleSubmit}
           >
             { loading ? <Spinner /> : "Find Workout" }
           </button>
           <button 
-            className="tiny green btn"
+            className="fluid green btn"
             onClick={() => history.push("/addworkout")}
           >
             Add Workout
