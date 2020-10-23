@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useFormik, Form } from "formik";
+import { useFormik } from "formik";
 import { AppShell } from "../components/app-shell";
 import { Spinner } from "../components/spinner";
 import { WodlogLogo } from "../components/logo";
@@ -32,8 +32,9 @@ function Register(props) {
   return (
     <AppShell>
       <WodlogLogo />
-      <Form 
+      <form 
         className="form-wrapper register"
+        classname={formik.handleSubmit}
       >
         <div className="form-header-wrapper">
           <h1 className="form-header">Create an account</h1>
@@ -87,7 +88,7 @@ function Register(props) {
               Already have an account?  Sign in here.
           </a>
         </div>
-      </Form>
+      </form>
     </AppShell>
   )
 };
