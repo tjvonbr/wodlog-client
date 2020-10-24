@@ -7,6 +7,7 @@ import { client } from "../utils/client";
 
 function SignIn(props) {
   const [pending, setPending] = useState(false);
+  const [error, setError] = useState("")
 
   const formik = useFormik({
     initialValues: {
@@ -21,7 +22,8 @@ function SignIn(props) {
           props.history.replace("/dashboard");
         })
         .catch(error => {
-          console.log(error);
+          setPending(false);
+          setError(error.message);
         })
     }
   })
