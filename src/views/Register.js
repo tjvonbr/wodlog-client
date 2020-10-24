@@ -7,7 +7,7 @@ import { client } from "../utils/client";
 
 function Register(props) {
   const [pending, setPending] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [error, setError] = useState("");
 
   const formik = useFormik({
     initialValues: {
@@ -24,7 +24,7 @@ function Register(props) {
         })
         .catch(error => {
           setPending(false);
-          setErrorMessage(error.message);
+          setError(error.message);
         })
     }
   })
