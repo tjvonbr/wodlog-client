@@ -1,10 +1,10 @@
 import React from "react";
 
-function ErrorMessage({ children, show }) {
+function ErrorMessage({ children, errors }) {
   return (
     <p 
-      className={show === null ? "form-error-messag--hide" : "form-error-message--show"}>
-        {children}
+      className={errors ? "form-error-message--show" : "form-error-message--hide" }>
+      {children}
     </p>
   )
 }

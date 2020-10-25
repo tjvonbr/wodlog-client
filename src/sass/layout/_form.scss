@@ -35,15 +35,15 @@
 
 .form-input-wrapper {
   width: 90%;
-  height: 60%;
+  height: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   box-sizing: border-box;
 }
 
 .form-input-label {
-  padding-bottom: 0.2rem;
+  padding-bottom: 0;
   font-family: "Libre Franklin", sans-serif;
   font-size: 0.9rem;
 }
@@ -103,6 +103,10 @@
   }
 }
 
+.form-error-message {
+  color: red;
+}
+
 // Config sizes for views dir
 .signin {
   height: 31.25rem;
@@ -132,7 +136,6 @@
 
 .registration-input {
   @include form-input;
-  margin-bottom: 2rem;
 }
 
 .addWorkout-input {
