@@ -1,9 +1,23 @@
 import React, { useState } from "react";
-import { useFormik, Form } from "formik";
+import { useFormik } from "formik";
 import { AppShell } from "../components/app-shell";
+import ErrorMessage from "../components/form/error-message";
 import { Spinner } from "../components/spinner";
 import { WodlogLogo } from "../components/logo";
 import { client } from "../utils/client";
+import * as Yup from "yup";
+
+function validate(values) {
+  const errors = {};
+  if (!values.username) {
+    errors.username = "Please enter your username"
+  }
+  if (!values.password) {
+    errors.password = "Please enter your password"
+  }
+
+  return errors;
+}
 
 function SignIn(props) {
   const [pending, setPending] = useState(false);
@@ -14,10 +28,11 @@ function SignIn(props) {
       username: "",
       password: ""
     },
+    validate,
     onSubmit: values => {
       setPending(true);
       return client("login", { data: values })
-        .then(response => {
+        .then(() => {
           setPending(false);
           props.history.replace("/dashboard");
         })
@@ -43,28 +58,35 @@ function SignIn(props) {
           </p>
         </div>
         <div className="form-input-wrapper">
-          <label htmlFor="username" className="form-input-label">
-            Username
-          </label>
-          <input 
-            className="registration-input"
-            id="username"
-            name="username"
-            type="text"
-            onChange={formik.handleChange}
-            value={formik.values.username}
-          />
-          <label htmlFor="password" className="form-input-label">
-            Password
-          </label>
-          <input 
-            className="registration-input"
-            id="password"
-            name="password"
-            type="password"
-            onChange={formik.handleChange}
-            value={formik.values.password}
-          />
+          <div>
+            <label htmlFor="username" className="form-input-label">
+              Username
+            </label>
+            <input 
+              className="registration-input"
+              id="username"
+              name="username"
+              type="text"
+              onChange={formik.handleChange}
+              value={formik.values.username}
+            />
+            {formik.errors.username ? <ErrorMessage>{formik.errors.username}</ErrorMessage> : null}
+            <ErrorMessage />
+          </div>
+          <div>
+            <label htmlFor="password" className="form-input-label">
+              Password
+            </label>
+            <input 
+              className="registration-input"
+              id="password"
+              name="password"
+              type="password"
+              onChange={formik.handleChange}
+              value={formik.values.password}
+            />
+            {formik.errors.password ? <ErrorMessage errors={formik.errors}>{formik.errors.password}</ErrorMessage> : null}
+          </div>
         </div>
         <div className="form-redirect-wrapper">
           <button 
